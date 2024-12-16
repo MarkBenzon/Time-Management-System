@@ -1,0 +1,37 @@
+* {
+    padding:0;
+    margin: 0;
+}
+
+body{
+    background-color: #fef3e2;
+    
+
+}
+/* NAV */
+.nav {
+    background-color: red;
+    height: 100px;
+}
+ h1 {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    padding-top: 25px;
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    text-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+img {
+    margin-right: 90%;
+    height: 100px;
+    position: absolute;
+    top: 1px;
+    left: 10px;
+    bottom: 15px;
+    border: 10px 20px  yellow;
+    rotate: 180deg;
+}

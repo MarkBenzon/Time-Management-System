@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Management Sytem</title>
+    <link rel="stylesheet" href="page2style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,900;1,14..32,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,900;1,14..32,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">  
+</head>
+<body>
+
+    <div class="nav">
+        <h1>Time Management System</h1>
+        <a href="../page1/page1.html">
+            <img src="right-arrow.png" alt="Next Page2">
+        </a>
+    </div>
+    <style>
+
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FAB12F;
+            margin-top: 70px;
+            font-family: Arial, sans-serif;
+            border-radius: 10px;
+            text-align: center;
+            padding: 40px;
+            box-shadow: 10px 10px 30px 10px #000000;
+             
+        }
+
+        .task-list {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .task {
+            padding: 5px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .task span {
+            flex-grow: 1;
+        }
+
+        .task button {
+            background-color: #ff6347;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .task button:hover {
+            background-color: #e54b39;
+
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            margin-right: 10px;
+            width: 250px;
+            border-radius: 10px;
+            height: 30px;
+            width: 70%;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            height: 40px;
+
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div>
+        <h2>Add Daily Task</h2>
+        <input type="text" id="daily-task-input" placeholder="Enter daily task">
+        <button onclick="addTask('daily')">Add Daily Task</button>
+    </div>
+
+  
+    <section id="daily-summary">
+        <h2>Daily Summary</h2>
+        <div class="task-list" id="daily-tasks">
+         
+        </div>
+    </section>
+
+
+    <div>
+        <h2>Add Weekly Task</h2>
+        <input type="text" id="weekly-task-input" placeholder="Enter weekly task">
+        <button onclick="addTask('weekly')">Add Weekly Task</button>
+    </div>
+
+    
+    <section id="weekly-summary">
+        <h2>Weekly Overview</h2>
+        <div class="task-list" id="weekly-tasks">
+           
+        </div>
+    </section>
+</div>
+
+<script>
+    
+function addTask(type) {
+
+    const inputField = type === 'daily' ? document.getElementById('daily-task-input') : document.getElementById('weekly-task-input');
+    const taskList = type === 'daily' ? document.getElementById('daily-tasks') : document.getElementById('weekly-tasks');
+
+    const taskText = inputField.value.trim();  
+
+    if (taskText) {
+       
+        const task = {
+            text: taskText,
+            type: type,
+        };
+
+        
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        tasks.push(task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+
+        
+        const taskElement = document.createElement('div');
+        taskElement.classList.add('task');
+        
+       
+        const taskTextElement = document.createElement('span');
+        taskTextElement.textContent = taskText;
+        taskElement.appendChild(taskTextElement);
+        
+     
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.onclick = () => deleteTask(task, taskElement);  
+        taskElement.appendChild(deleteButton);
+
+        
+        taskList.appendChild(taskElement);
+
+        
+        inputField.value = '';
+    } else {
+        alert('Please enter a task before adding.');
+    }
+}
+
+
+function deleteTask(task, taskElement) {
+    
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    tasks = tasks.filter(t => t.text !== task.text || t.type !== task.type);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+
+    taskElement.remove();
+}
+
+
+window.onload = function() {
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    
+    tasks.forEach(task => {
+        
+        const taskList = task.type === 'daily' ? document.getElementById('daily-tasks') : document.getElementById('weekly-tasks');
+
+     
+        const taskElement = document.createElement('div');
+        taskElement.classList.add('task');
+
+       
+        const taskTextElement = document.createElement('span');
+        taskTextElement.textContent = task.text;
+        taskElement.appendChild(taskTextElement);
+
+      
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.onclick = () => deleteTask(task, taskElement);  
+        taskElement.appendChild(deleteButton);
+
+        
+        taskList.appendChild(taskElement);
+    });
+};
+
+
+
+</script>
+
+</body>
+</html>
+
+    
+   
+
+    
+</body>
+</html>

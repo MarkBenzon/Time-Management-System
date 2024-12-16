@@ -1,0 +1,268 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #fef3e2;
+}
+
+/* NAV */
+.nav {
+    background-color: red;
+    height: 100px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    padding-top: 25px;
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    text-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+}
+textarea {
+    height: 100px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.arrow {
+    margin-left: 90%;
+    height: 100px;
+    position: absolute;
+    top: 1px;
+    left: 10px;
+    bottom: 15px;
+    border: 10px 20px yellow;
+}
+
+.arrow-2 {
+    margin-right: 90%;
+    height: 100px;
+    position: absolute;
+    top: 1px;
+    left: 10px;
+    bottom: 15px;
+    border: 10px 20px yellow;
+    rotate: 180deg;
+}
+
+/* ADD TASK */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color:#fef3e2;
+    margin: 0;
+    padding: 0;
+}
+
+.addTask {
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: #FAB12F;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for input fields */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h2 {
+    font-size: 26px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Input Group Styles */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+h3 {
+    font-size: 18px;
+    color: #555;
+}
+
+input[type="text"], input[type="number"], input[type="date"], select {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s;
+    border-radius: 10px;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, select:focus {
+    border-color: #007bff;
+}
+
+/* Time Select Group */
+.time-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+select {
+    width: 50%;
+}
+
+/* Button Styles */
+.button-container {
+    text-align: center; /* Ensures buttons are centered horizontally */
+}
+
+.button-task {
+    padding: 12px 30px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block; /* Ensure it's treated as an inline-block element */
+}
+
+.button-task:hover {
+    background-color: #218838;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .time-group {
+        flex-direction: column;
+    }
+
+    select {
+        width: 100%;
+        display: block;   /* Makes the <select> a block-level element */
+        margin: 0 auto;   /* Centers it horizontally */
+        width: 200px;     /* Optional width */
+    }
+}
+
+
+/* 2 */
+
+/* Global styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Search bar */
+.search {
+    padding: 20px;
+    background-color: #FAB12F;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+#search {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+/* Task List Container */
+.display-task {
+    margin-top: 20px;
+}
+
+/* Task Card */
+.task {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.task:hover {
+    transform: translateY(-5px);
+}
+
+.task h2 {
+    font-size: 18px;
+    color: #333;
+    margin: 0 0 10px;
+}
+
+.task .time-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.task .time-info span {
+    font-weight: bold;
+}
+
+.task .controls {
+    display: flex;
+    justify-content: center; /* Centers buttons horizontally */
+    gap: 10px; /* Adds space between buttons */
+}
+
+.task button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    justify-content: center;
+}
+
+.task button:hover {
+    background-color: #0056b3;
+}
+
+.task .delete-btn {
+    background-color: #dc3545;
+}
+
+.task .delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Search Bar Focus Styling */
+#search:focus {
+    outline: none;
+    border-color: #007BFF;
+}
